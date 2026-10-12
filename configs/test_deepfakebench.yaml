@@ -1,0 +1,23 @@
+# DeepfakeBench checkpoint evaluation template.
+# Train first or set weight_path to a released checkpoint.
+weight_path: outputs/deepfakebench/weights/clipmlpa_deepfakebench.pt
+prototypes_path: null
+
+device: null
+dataset_mode: deepfakebench
+test_dataset: all
+test_split: test
+data_json_folder: /path/to/DeepfakeBench/dataset_json
+base_data_path: /path/to/DeepfakeBench/Datasets
+compression: c23
+test_frame_num: 32
+image_size: 224
+strict_existing_files: false
+identity_regex: null
+fake_identity_role: source
+
+local_files_only: false
+cache_dir: null
+eval_batch_size: 64
+num_workers: 4
+output_dir: outputs/eval_deepfakebench

@@ -1,0 +1,25 @@
+# UniversalFakeDetect checkpoint evaluation template.
+# Train first or set weight_path to a released checkpoint.
+weight_path: outputs/universal/weights/clipmlpa_universal.pt
+prototypes_path: null
+
+device: null
+dataset_mode: universal
+test_dataset: all
+image_size: 224
+strict_existing_files: false
+
+universal:
+  data_root: /path/to/UniversalFakeDetect
+  train_categories: all
+  test_generators: all
+  include_diffusion_test: true
+  reference_data_pipeline: true
+  load_size: 256
+  crop_size: 224
+
+local_files_only: false
+cache_dir: null
+eval_batch_size: 64
+num_workers: 4
+output_dir: outputs/eval_universal

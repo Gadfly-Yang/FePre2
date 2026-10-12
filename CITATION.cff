@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper Few and Precise: Dimension-Wise Representation Reshaping for Generalizable AI-Generated Image Detection."
+title: "Few and Precise: Dimension-Wise Representation Reshaping for Generalizable AI-Generated Image Detection"
+authors:
+  - name: "Gadfly-Yang"
+    website: "https://github.com/Gadfly-Yang"
+version: 1.0.0
+date-released: "2026-10-04"
+license: MIT

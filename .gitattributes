@@ -1,0 +1,14 @@
+* text=auto
+*.py text
+*.md text
+*.yaml text
+*.yml text
+*.json text
+*.cff text
+*.sh text
+Makefile text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pt binary
+*.pth binary

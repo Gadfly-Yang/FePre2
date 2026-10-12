@@ -1,0 +1,107 @@
+# Main DeepfakeBench training template for CLIPMLPa.
+# Replace /path/to/... values with your local dataset paths before training.
+seed: 123
+device: null
+
+dataset_mode: deepfakebench
+train_dataset: FaceForensics++
+test_dataset: Celeb-DF-v2
+train_split: train
+test_split: test
+data_json_folder: /path/to/DeepfakeBench/dataset_json
+base_data_path: /path/to/DeepfakeBench/Datasets
+compression: c23
+frame_num: 32
+train_frame_num: 32
+test_frame_num: 32
+image_size: 224
+strict_existing_files: false
+identity_regex: null
+augmentation_prob: 0.1
+fake_identity_role: source
+
+clip_model: openai/clip-vit-large-patch14
+visual_model:
+  type: clip
+  name: openai/clip-vit-large-patch14
+  feature_pooling: default
+  hidden_size: null
+local_files_only: false
+cache_dir: null
+feature_layer: final
+freeze_clip: true
+normalize_clip_features: true
+embedding_dim: 128
+hidden_dim: 512
+dropout: 0.1
+
+ae:
+  enabled: true
+  type: vae
+  recon_weight: 1.0
+  kl_weight: 0.001
+  beta: 1.0
+  detach_target: true
+
+lora:
+  enabled: true
+  r: 2
+  alpha: 32
+  dropout: 0.25
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - out_proj
+
+batch_size: 32
+eval_batch_size: 64
+num_workers: 4
+epochs: 10
+lr: 1.0e-5
+weight_decay: 1.0e-4
+
+vae_bottleneck_contrastive:
+  enabled: false
+  loss_weight: 1.0
+  temperature: 0.07
+
+l_contrast_weight: 0.0
+l_contrast_temperature: 0.07
+l_sep_weight: 1.0
+l_sep_gamma: 1.0
+l_sep_eps: 1.0e-8
+l_global_sep_weight: 1.0
+l_global_sep_gamma: 1.0
+l_global_sep_eps: 1.0e-8
+
+sparse_fisher:
+  enabled: true
+  eps: 1.0e-8
+  topk: 16
+  entropy_weight: 0.5
+  entropy_temperature: 0.1
+
+paired_view_fisher_consistency:
+  enabled: true
+  loss_weight: 0.1
+  temperature: 0.5
+  second_view_augmentation_prob: 1.0
+  feature_consistency_weight: 0.0
+  eps: 1.0e-8
+  topk: 16
+
+balanced_real_fake_batches: true
+drop_last: false
+log_interval: 20
+test_interval: 200
+proto_momentum: 0.99
+
+tsne_interval: 0
+tsne_max_samples: 2000
+tsne_perplexity: 30.0
+
+output_dir: outputs/deepfakebench
+save_best_auc_weight: true
+weight_dir: outputs/deepfakebench/weights
+weight_name: clipmlpa_deepfakebench.pt
