@@ -4,7 +4,7 @@
 
 **Few and Precise: Dimension-Wise Representation Reshaping for Generalizable AI-Generated Image Detection**
 
-Official PyTorch implementation (under review at *Pattern Recognition*).
+Official PyTorch implementation.
 
 [![CI](https://github.com/Gadfly-Yang/FePre2/actions/workflows/ci.yml/badge.svg)](https://github.com/Gadfly-Yang/FePre2/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -234,23 +234,6 @@ make compile   # syntax checks
 ```
 
 Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request.
-
-## 📚 Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@article{fepreR22027,
-  title   = {Few and Precise: Dimension-Wise Representation Reshaping for
-             Generalizable AI-Generated Image Detection},
-  author  = {Gadfly-Yang},
-  journal = {Pattern Recognition},
-  year    = {2027},
-  note    = {Under review}
-}
-```
-
-Machine-readable metadata is in [`CITATION.cff`](CITATION.cff).
 
 ## 🙏 Acknowledgements
 
